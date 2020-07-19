@@ -13,8 +13,22 @@ public class Main {
 
         File videoFile = new File("/home/anton/Videos/blur.mp4");
         Picture frame = FrameGrab.getFrameFromFile(videoFile, 0);
-        System.out.println("w: "+frame.getWidth());
+        System.out.println("w: " + frame.getWidth());
 
-        
+        int i = 0;
+
+        try {
+            while (null != FrameGrab.getFrameFromFile(videoFile, i)){
+                i++;
+            }
+        }catch (Exception e){
+            System.out.println("crash");
+            e.printStackTrace();
+        }
+
+
+        System.out.println("frame count: " + i);
+
+
     }
 }
